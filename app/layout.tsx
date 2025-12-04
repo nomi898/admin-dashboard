@@ -42,11 +42,9 @@ export default function RootLayout({
             {/* Header */}
             <Appbar />
           </div>
-            {/* Main content below header */}
             <div
               style={{ flex: 1, padding: "20px", backgroundColor: "#f9f9f9" }}
             >
-              {/* Your page content goes here */}
               {children}
             </div>
           </div>

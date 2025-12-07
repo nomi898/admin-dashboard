@@ -59,7 +59,7 @@ const HomePage = () => {
     <div>
         <DealsTable />
     </div>
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
         <CustomersChart />
         <div className="bg-white p-6 rounded-xl shadow-md flex justify-center items-center">
           <p className="text-gray-600">Featured Product Component Here</p>

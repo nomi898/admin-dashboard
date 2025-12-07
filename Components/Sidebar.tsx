@@ -73,7 +73,7 @@ const Sidebar = () => {
   const topitems = [
     { name: "Dashboard", link: "/",image: Dashboard },
     { name: "Products", link: "/Products",image: Product},
-    { name: "Favorites", link: "/Favorites",image: Favourites },
+    { name: "Favourite", link: "/Favourite",image: Favourites },
     { name: "Inbox", link: "/Inbox",image: Inbox },
     { name: "Order Lists", link: "/Orderlists",image: OrderList },
     { name: "Product Stock", link: "/Productstock",image:Productstock },

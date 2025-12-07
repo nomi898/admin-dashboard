@@ -1,5 +1,9 @@
 import StatCard from "@/Components/Dashboard/StatCard";
 import { FaUsers, FaBox, FaChartLine, FaClock } from "react-icons/fa";
+import SalesChart from '../Components/Dashboard/SalesChart';
+import DealsTable from '../Components/Dashboard/DealsTable';
+import CustomersChart from "@/Components/Dashboard/CustomersChart";
+import SalesAnalytics from "@/Components/Dashboard/SalesAnalytics";
 
 const HomePage = () => {
   return (
@@ -49,7 +53,21 @@ const HomePage = () => {
         isUp={true}
       />
     </div>
+    <div>
+        <SalesChart />
     </div>
+    <div>
+        <DealsTable />
+    </div>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <CustomersChart />
+        <div className="bg-white p-6 rounded-xl shadow-md flex justify-center items-center">
+          <p className="text-gray-600">Featured Product Component Here</p>
+        </div>
+        <SalesAnalytics />
+      </div>
+    </div>
+    
   )
 }
 

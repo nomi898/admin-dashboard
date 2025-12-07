@@ -32,16 +32,17 @@ const slides = [
 
 const Heroswiper = () => {
   return (
-    <div className="w-full">
+    <div className="w-full overflow-x-hidden max-w-full">
       <Swiper
         modules={[Navigation, Pagination]}
         spaceBetween={0} // no spacing between slides
         slidesPerView={1} // always one slide at a time
         navigation
         pagination={{ clickable: true }}
+        className="!w-full"
       >
         {slides.map((slide, index) => (
-          <SwiperSlide key={index} className="w-full relative">
+          <SwiperSlide key={index} className="!w-full relative">
             {slide.type === 'custom' ? (
               <div
                 className="w-full h-80 md:h-96 lg:h-[500px] flex items-center justify-center"

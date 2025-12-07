@@ -4,8 +4,8 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>
-      <div>
+    <div className="w-full overflow-x-hidden max-w-full">
+      <div className="w-full">
         <HeroSwiper />
         <ProductGrid />
       </div>

@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import emailsReducer from "./emailsSlice";
+import stockReducer from "./stockSlice";
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       emails: emailsReducer,
+      stock: stockReducer,
     },
   });
 };

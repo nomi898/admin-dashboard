@@ -4,6 +4,7 @@ import "./globals.css";
 import Appbar from "@/Components/Appbar";
 import Sidebar from "@/Components/Sidebar";
 import { Box } from "@mui/material";
+import Providers from "@/Components/Providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,25 +32,27 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning
       >
-        <div style={{ display: "flex", minHeight: "100vh" }}>
-          {/* Sidebar */}
-          <div style={{ width: "250px" }}>
-            <Sidebar />
-          </div>
+        <Providers>
+          <div style={{ display: "flex", minHeight: "100vh" }}>
+            {/* Sidebar */}
+            <div style={{ width: "250px" }}>
+              <Sidebar />
+            </div>
 
-          {/* Right side: header + content */}
-          <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-          <div style={{ flexShrink: 0 }}>
-            {/* Header */}
-            <Appbar />
-          </div>
-            <div
-              style={{ flex: 1, padding: "20px", backgroundColor: "#f9f9f9" }}
-            >
-              {children}
+            {/* Right side: header + content */}
+            <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+            <div style={{ flexShrink: 0 }}>
+              {/* Header */}
+              <Appbar />
+            </div>
+              <div
+                style={{ flex: 1, padding: "20px", backgroundColor: "#f9f9f9" }}
+              >
+                {children}
+              </div>
             </div>
           </div>
-        </div>
+        </Providers>
       </body>
     </html>
   );

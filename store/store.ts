@@ -1,12 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import emailsReducer from "./emailsSlice";
 import stockReducer from "./stockSlice";
+import calendarReducer from "./calendarSlice";
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       emails: emailsReducer,
       stock: stockReducer,
+      calendar: calendarReducer,
     },
   });
 };

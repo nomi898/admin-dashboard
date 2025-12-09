@@ -119,9 +119,9 @@ const ProductStockPage = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-3xl font-bold">Product Stock</h1>
+    <div className="p-4 sm:p-6 bg-gray-50 min-h-screen">
+      <div className="flex items-center justify-between mb-4 sm:mb-6 gap-3 flex-wrap">
+        <h1 className="text-2xl sm:text-3xl font-bold">Product Stock</h1>
         <div className="flex items-center gap-4">
           {/* Search Bar */}
           <div className="relative">

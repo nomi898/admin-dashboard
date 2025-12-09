@@ -194,10 +194,10 @@ const CalendarPage = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex flex-col lg:flex-row h-screen bg-gray-50">
       {/* Left Sidebar */}
-      <div className="w-80 bg-white border-r border-gray-200 p-6 overflow-y-auto">
-        <h1 className="text-2xl font-bold mb-6">Calender</h1>
+      <div className="w-full lg:w-80 bg-white border-r border-b lg:border-b-0 border-gray-200 p-4 sm:p-6 overflow-y-auto">
+        <h1 className="text-2xl font-bold mb-4 sm:mb-6">Calender</h1>
 
         {/* Add New Event Button */}
         <button
@@ -275,9 +275,9 @@ const CalendarPage = () => {
       </div>
 
       {/* Main Calendar Area */}
-      <div className="flex-1 flex flex-col p-6">
+      <div className="flex-1 flex flex-col p-4 sm:p-6">
         {/* Calendar Header */}
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-4 sm:mb-6 flex-wrap gap-3">
           <button
             onClick={() => dispatch(goToToday())}
             className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
@@ -319,7 +319,7 @@ const CalendarPage = () => {
         </div>
 
         {/* Calendar Grid */}
-        <div className="flex-1 bg-white rounded-lg p-6 overflow-auto">
+        <div className="flex-1 bg-white rounded-lg p-4 sm:p-6 overflow-auto">
           {currentView === "Month" && (
             <div>
               {/* Days of Week Header */}

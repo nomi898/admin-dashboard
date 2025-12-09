@@ -153,11 +153,11 @@ const OrderListsPage = () => {
   const daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"];
 
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
-      <h1 className="text-3xl font-bold mb-6">Order Lists</h1>
+    <div className="p-4 sm:p-6 bg-gray-50 min-h-screen">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Order Lists</h1>
 
       {/* Filter Bar */}
-      <div className="bg-white rounded-lg p-4 mb-6 flex items-center gap-4 flex-wrap">
+      <div className="bg-white rounded-lg p-3 sm:p-4 mb-6 flex items-center gap-3 sm:gap-4 flex-wrap">
         <div className="flex items-center gap-2">
           <Filter className="w-5 h-5 text-gray-600" />
           <span className="font-medium">Filter By</span>
@@ -171,7 +171,7 @@ const OrderListsPage = () => {
               setShowOrderTypePicker(false);
               setShowOrderStatusPicker(false);
             }}
-            className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50"
+            className="flex items-center gap-2 px-3 sm:px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50"
           >
             <Calendar className="w-4 h-4" />
             <span>{formatDate(selectedDate)}</span>

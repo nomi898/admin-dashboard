@@ -113,11 +113,11 @@ const InvoicePage = () => {
   }
 
   return (
-    <div className="p-6 bg-gray-50 min-h-screen print:bg-white">
-      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8 print:shadow-none">
+    <div className="p-4 sm:p-6 bg-gray-50 min-h-screen print:bg-white">
+      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-4 sm:p-8 print:shadow-none">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8 print:hidden">
-          <h1 className="text-3xl font-bold">Invoice</h1>
+        <div className="flex items-center justify-between mb-6 sm:mb-8 print:hidden gap-3 flex-wrap">
+          <h1 className="text-2xl sm:text-3xl font-bold">Invoice</h1>
           <div className="flex items-center gap-2">
             <button
               onClick={() => setIsEditingDetails(!isEditingDetails)}
@@ -144,7 +144,7 @@ const InvoicePage = () => {
         </div>
 
         {/* Invoice Details */}
-        <div className="grid grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8">
           {/* Invoice From */}
           <div>
             <h3 className="font-semibold text-gray-700 mb-2">Invoice From:</h3>
@@ -303,7 +303,7 @@ const InvoicePage = () => {
 
         {/* Items Table */}
         <div className="mb-6">
-          <div className="flex items-center justify-between mb-4 print:hidden">
+          <div className="flex items-center justify-between mb-4 print:hidden flex-wrap gap-3">
             <h3 className="text-lg font-semibold">Items</h3>
             <button
               onClick={() => setIsAddItemModalOpen(true)}

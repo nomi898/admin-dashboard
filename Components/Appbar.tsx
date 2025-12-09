@@ -63,7 +63,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const Appbar = () => {
+const Appbar = ({ onMenuClick }: { onMenuClick?: () => void }) => {
   const router = useRouter();
   // Admin menu state
   const [profileAnchor, setProfileAnchor] = React.useState<null | HTMLElement>(null);
@@ -149,12 +149,18 @@ const Appbar = () => {
       <AppBar position="static" elevation={0} sx={{ backgroundColor: "#ffffff" }}>
         <Toolbar>
           {/* Menu Icon */}
-          <IconButton size="large" edge="start" aria-label="open drawer" sx={{ mr: 2 }}>
+          <IconButton
+            size="large"
+            edge="start"
+            aria-label="open drawer"
+            sx={{ mr: 2, display: { xs: "inline-flex", lg: "none" } }}
+            onClick={onMenuClick}
+          >
             <MenuIcon />
           </IconButton>
 
           {/* Search */}
-          <Search>
+          <Search sx={{ display: { xs: "none", sm: "block" } }}>
             <SearchIconWrapper>
               <SearchIcon sx={{ color: "#8b8c8f" }} />
             </SearchIconWrapper>

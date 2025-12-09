@@ -18,8 +18,8 @@ const TablePage = () => {
   const productRows = useMemo(() => initialStock, []);
 
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
-      <h1 className="text-3xl font-bold mb-6">Table</h1>
+    <div className="p-4 sm:p-6 bg-gray-50 min-h-screen">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-6">Table</h1>
 
       {/* Orders Table */}
       <div className="bg-white rounded-lg shadow-sm overflow-hidden mb-8">

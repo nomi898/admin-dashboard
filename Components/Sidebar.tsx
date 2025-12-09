@@ -21,7 +21,17 @@ import Team from '@/public/sidebar/Team.svg'
 import Todo from '@/public/sidebar/Todo.svg'
 import Uielement from '@/public/sidebar/Uielements.svg'
 
-const SidebarSection = ({ title, items }: { title?: string; items: { name: string; link: string; image:any; }[] }) => {
+type SidebarItem = { name: string; link: string; image: any };
+
+const SidebarSection = ({
+  title,
+  items,
+  onNavigate,
+}: {
+  title?: string;
+  items: SidebarItem[];
+  onNavigate?: () => void;
+}) => {
   const pathname = usePathname(); // get current route
 
   return (
@@ -54,7 +64,8 @@ const SidebarSection = ({ title, items }: { title?: string; items: { name: strin
                 alignItems: "center",
                 gap: 1, // space between image placeholder and text
               }}
-            >
+              onClick={onNavigate}
+              >
               {/* Placeholder for future image/icon
               <Box sx={{ width: 24, height: 24, bgcolor: "#000", borderRadius: 0 }} /> */}
               <Image src={item.image}
@@ -69,7 +80,7 @@ const SidebarSection = ({ title, items }: { title?: string; items: { name: strin
   );
 };
 
-const Sidebar = () => {
+const Sidebar = ({ onNavigate }: { onNavigate?: () => void }) => {
   const topitems = [
     { name: "Dashboard", link: "/",image: Dashboard },
     { name: "Products", link: "/Products",image: Product},
@@ -102,11 +113,11 @@ const Sidebar = () => {
       </Box>
 
       {/* Sidebar Sections */}
-      <SidebarSection items={topitems} />
+      <SidebarSection items={topitems} onNavigate={onNavigate} />
       <Divider />
-      <SidebarSection title="PAGES" items={pagesitems} />
+      <SidebarSection title="PAGES" items={pagesitems} onNavigate={onNavigate} />
       <Divider />
-      <SidebarSection items={bottomitems} />
+      <SidebarSection items={bottomitems} onNavigate={onNavigate} />
     </Box>
   );
 };

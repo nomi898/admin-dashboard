@@ -192,7 +192,7 @@ const Appbar = ({ onMenuClick }: { onMenuClick?: () => void }) => {
             {/* Profile */}
             <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
               <Stack direction="row" spacing={2}>
-                <Avatar alt="Moni Roy" src="/static/images/avatar/1.jpg" />
+                <Avatar alt="Moni Roy" src="/Product/Image.svg" />
               </Stack>
 
               <Box sx={{ display: "flex", alignItems: "center", gap: 0.5, cursor: "pointer" }}>

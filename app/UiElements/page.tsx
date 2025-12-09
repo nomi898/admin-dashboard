@@ -64,9 +64,9 @@ const UiElementsPage = () => {
   }, [filter]);
 
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-3xl font-bold">UI Elements</h1>
+    <div className="p-4 sm:p-6 bg-gray-50 min-h-screen">
+      <div className="flex items-center justify-between mb-4 sm:mb-6">
+        <h1 className="text-2xl sm:text-3xl font-bold">UI Elements</h1>
 
         {/* Filter Dropdown */}
         <div className="relative">
@@ -106,7 +106,7 @@ const UiElementsPage = () => {
       {/* Bar Chart Section */}
       <section className="bg-white rounded-lg shadow-sm p-4 mb-6">
         <h2 className="text-lg font-semibold mb-4">Bar Chart</h2>
-        <div className="h-56">
+        <div className="h-56 min-w-0">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={barData}>
               <XAxis dataKey="name" tickLine={false} axisLine={false} />
@@ -124,7 +124,7 @@ const UiElementsPage = () => {
         <h2 className="text-lg font-semibold mb-4">Pie Chart</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[1, 2, 3, 4].map((idx) => (
-            <div key={idx} className="h-40">
+            <div key={idx} className="h-40 min-w-0">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
@@ -150,7 +150,7 @@ const UiElementsPage = () => {
         <h2 className="text-lg font-semibold mb-4">Donut Chart</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {donutData.map((d, idx) => (
-            <div key={d.name} className="h-36">
+            <div key={d.name} className="h-36 min-w-0">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie

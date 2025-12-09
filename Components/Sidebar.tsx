@@ -20,8 +20,10 @@ import Table from '@/public/sidebar/Table.svg'
 import Team from '@/public/sidebar/Team.svg'
 import Todo from '@/public/sidebar/Todo.svg'
 import Uielement from '@/public/sidebar/Uielements.svg'
+import type { StaticImageData } from "next/image";
 
-type SidebarItem = { name: string; link: string; image: any };
+
+type SidebarItem = { name: string; link: string; image: StaticImageData };
 
 const SidebarSection = ({
   title,
@@ -66,11 +68,13 @@ const SidebarSection = ({
               }}
               onClick={onNavigate}
               >
-              {/* Placeholder for future image/icon
-              <Box sx={{ width: 24, height: 24, bgcolor: "#000", borderRadius: 0 }} /> */}
-              <Image src={item.image}
-              alt={''}
-              />            
+              <Image
+                src={item.image}
+                alt={item.name}
+                width={24}
+                height={24}
+                style={{ width: "24px", height: "24px" }}
+              />
               <ListItemText primary={item.name} />
             </ListItem>
           );
@@ -109,7 +113,7 @@ const Sidebar = ({ onNavigate }: { onNavigate?: () => void }) => {
     <Box sx={{ width: 250, bgcolor: "#fff", minHeight: "100vh", borderRight: "1px solid #ddd" }}>
       {/* Logo */}
       <Box sx={{ display: "flex", justifyContent: "center", mt: 4, mb: 2 }}>
-        <Image src={logo} alt="Logo" width={150} height={50} />
+        <Image src={logo} alt="Logo" width={150} height={150} />
       </Box>
 
       {/* Sidebar Sections */}

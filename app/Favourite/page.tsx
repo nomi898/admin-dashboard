@@ -88,14 +88,14 @@ const Favorites = () => {
             <p className="text-gray-400 text-sm mt-2">Add products to favorites from the Products page.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {favoriteProducts.map((item) => (
-              <FavoriteProductCard 
-                key={item.id} 
-                item={item}
-              />
-            ))}
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {favoriteProducts.map((item) => (
+            <FavoriteProductCard 
+              key={item.id} 
+              item={item}
+            />
+          ))}
+        </div>
         )}
       </div>
     </div>

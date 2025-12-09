@@ -11,6 +11,7 @@ import {
   Stack,
   Toolbar,
   Typography,
+  Divider,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
@@ -20,6 +21,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { styled } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import ReactCountryFlag from "react-country-flag";
+import { useRouter } from "next/navigation";
 
 // Styled search components
 const Search = styled("div")(({ theme }) => ({
@@ -62,8 +64,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const Appbar = () => {
+  const router = useRouter();
   // Admin menu state
   const [profileAnchor, setProfileAnchor] = React.useState<null | HTMLElement>(null);
+  const [notifAnchor, setNotifAnchor] = React.useState<null | HTMLElement>(null);
 
   const handleProfileOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
     setProfileAnchor(event.currentTarget);
@@ -72,6 +76,11 @@ const Appbar = () => {
   const handleProfileClose = () => {
     setProfileAnchor(null);
   };
+
+  const handleNotifOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setNotifAnchor(event.currentTarget);
+  };
+  const handleNotifClose = () => setNotifAnchor(null);
 
   // Mobile menu
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -157,7 +166,12 @@ const Appbar = () => {
           {/* Desktop Icons */}
           <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 2 }}>
             {/* Notifications */}
-            <IconButton size="large" aria-label="show 16 new notifications" color="inherit">
+            <IconButton
+              size="large"
+              aria-label="show 16 new notifications"
+              color="inherit"
+              onClick={handleNotifOpen}
+            >
               <Badge badgeContent={16} color="error">
                 <NotificationsIcon sx={{ color: "#4980ff" }} />
               </Badge>
@@ -189,9 +203,39 @@ const Appbar = () => {
 
               {/* Admin Dropdown Menu */}
               <Menu anchorEl={profileAnchor} open={Boolean(profileAnchor)} onClose={handleProfileClose}>
-                <MenuItem onClick={handleProfileClose}>Profile</MenuItem>
-                <MenuItem onClick={handleProfileClose}>Settings</MenuItem>
-                <MenuItem onClick={handleProfileClose}>Logout</MenuItem>
+                <MenuItem
+                  onClick={() => {
+                    handleProfileClose();
+                    router.push("/Account/manage");
+                  }}
+                >
+                  Manage Account
+                </MenuItem>
+                <MenuItem
+                  onClick={() => {
+                    handleProfileClose();
+                    router.push("/Account/password");
+                  }}
+                >
+                  Change Password
+                </MenuItem>
+                <MenuItem
+                  onClick={() => {
+                    handleProfileClose();
+                    router.push("/Account/activity");
+                  }}
+                >
+                  Activity Log
+                </MenuItem>
+                <Divider />
+                <MenuItem
+                  onClick={() => {
+                    handleProfileClose();
+                    router.push("/Logout");
+                  }}
+                >
+                  Log out
+                </MenuItem>
               </Menu>
             </Box>
           </Box>
@@ -215,6 +259,31 @@ const Appbar = () => {
       {/* Menus */}
       {languageMenu}
       {renderMobileMenu}
+      <Menu anchorEl={notifAnchor} open={Boolean(notifAnchor)} onClose={handleNotifClose}>
+        <MenuItem disabled>
+          <Typography variant="subtitle2">Notification</Typography>
+        </MenuItem>
+        <Divider />
+        {[
+          { label: "Settings", desc: "Update Dashboard" },
+          { label: "Event Update", desc: "An event date update" },
+          { label: "Profile", desc: "Update your profile" },
+          { label: "Application Error", desc: "Check your running app" },
+        ].map((n, idx) => (
+          <MenuItem key={idx} onClick={handleNotifClose} sx={{ display: "block" }}>
+            <Typography sx={{ fontWeight: 600 }}>{n.label}</Typography>
+            <Typography variant="caption" sx={{ color: "#555" }}>
+              {n.desc}
+            </Typography>
+          </MenuItem>
+        ))}
+        <Divider />
+        <MenuItem onClick={handleNotifClose}>
+          <Typography variant="body2" sx={{ color: "#4980ff" }}>
+            See all notification
+          </Typography>
+        </MenuItem>
+      </Menu>
     </Box>
   );
 };

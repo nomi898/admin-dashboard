@@ -1,7 +1,8 @@
 "use client";
 
-import Image from "next/image";
+import deal from "@/public/Products/Image.svg";
 import React from "react";
+import Image from "next/image";
 
 interface Deal {
   id: number;
@@ -18,7 +19,7 @@ const deals: Deal[] = [
   {
     id: 1,
     productName: "Apple Watch",
-    productImage: "/apple-watch.png", // put the image in public/
+    productImage: deal, // put the image in public/
     location: "6096 Marjolaine Landing",
     date: "12.09.2019 - 12.53 PM",
     piece: 423,
@@ -28,7 +29,7 @@ const deals: Deal[] = [
   {
     id: 2,
     productName: "Apple Watch",
-    productImage: "/apple-watch.png", // put the image in public/
+    productImage: deal, // put the image in public/
     location: "6096 Marjolaine Landing",
     date: "12.09.2019 - 12.53 PM",
     piece: 423,
